@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bokafrrheps5p"]
+
+[ext_resource type="Texture2D" uid="uid://drqnfoihy3xow" path="res://assets/upscalemedia-transformed.png" id="1_sxf4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrmi8"]
+size = Vector2(2483, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxf4j"]
+size = Vector2(13, 731)
+
+[node name="Map" type="Node2D" unique_id=582902014]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1108881518]
+position = Vector2(-74, 351)
+scale = Vector2(0.36064535, 0.36064535)
+texture = ExtResource("1_sxf4j")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=714941990]
+position = Vector2(1167, 351)
+scale = Vector2(0.361, 0.361)
+texture = ExtResource("1_sxf4j")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=823748847]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=806531674]
+position = Vector2(547.5, 700)
+shape = SubResource("RectangleShape2D_hrmi8")
+
+[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=1843955512]
+offset_left = -694.0
+offset_top = 680.0
+offset_right = 1787.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=1563430894]
+position = Vector2(-731, 269)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1588520267]
+position = Vector2(124.5, 78.5)
+shape = SubResource("RectangleShape2D_sxf4j")
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=131956767]
+position = Vector2(1571, 270)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=1610768675]
+position = Vector2(124.5, 78.5)
+shape = SubResource("RectangleShape2D_sxf4j")

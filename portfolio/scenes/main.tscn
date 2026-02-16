@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cr2tv4nym765n"]
+
+[ext_resource type="PackedScene" uid="uid://bokafrrheps5p" path="res://scenes/map/map.tscn" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://d06yhggqq5hh3" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://r0ul71powgjq" path="res://scenes/player.tscn" id="2_sugp2"]
+
+[node name="Main" type="Node" unique_id=275859134]
+script = ExtResource("1_sugp2")
+
+[node name="Map" parent="." unique_id=582902014 instance=ExtResource("1_0wfyh")]
+
+[node name="Player" parent="." unique_id=384015666 instance=ExtResource("2_sugp2")]
+position = Vector2(149, 631)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1005183271]
+position = Vector2(540, 360)
