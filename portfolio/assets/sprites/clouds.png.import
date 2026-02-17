@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbbsql5frn4sc"
-path="res://.godot/imported/f24e6acf-079e-48f9-879c-c203550e2697.jpg-464c3ab21aa24fcce322d4ef276c873f.ctex"
+uid="uid://c62kfyyqv8ltu"
+path="res://.godot/imported/clouds.png-957e5275d52eda1e9730def61b952c32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/set-cartoon-cloud-flat-design-fluffy-white-cartoon-clouds-blue-sky-vector-set-c/f24e6acf-079e-48f9-879c-c203550e2697.jpg"
-dest_files=["res://.godot/imported/f24e6acf-079e-48f9-879c-c203550e2697.jpg-464c3ab21aa24fcce322d4ef276c873f.ctex"]
+source_file="res://assets/sprites/clouds.png"
+dest_files=["res://.godot/imported/clouds.png-957e5275d52eda1e9730def61b952c32.ctex"]
 
 [params]
 

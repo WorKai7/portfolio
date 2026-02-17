@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bokafrrheps5p"]
 
-[ext_resource type="Texture2D" uid="uid://c62kfyyqv8ltu" path="res://assets/set-cartoon-cloud-flat-design-fluffy-white-cartoon-clouds-blue-sky-vector-set-c/clouds.png" id="1_sxf4j"]
+[ext_resource type="Texture2D" uid="uid://c62kfyyqv8ltu" path="res://assets/sprites/clouds.png" id="1_sxf4j"]
 [ext_resource type="Texture2D" uid="uid://dkqq3w0kfkack" path="res://assets/sprites/tiles_spritesheet.png" id="2_ph54e"]
 [ext_resource type="Texture2D" uid="uid://c5ajr8vs0nvji" path="res://assets/sprites/sign.png" id="2_tqkkf"]
 [ext_resource type="FontFile" uid="uid://cryci81dcv17q" path="res://assets/fonts/Blue Winter.ttf" id="3_a2pkv"]
