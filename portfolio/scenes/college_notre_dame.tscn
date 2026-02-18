@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://yr406ds65wrs"]
+
+[ext_resource type="Script" uid="uid://dmcneof00xrm0" path="res://scenes/ecole_college.gd" id="1_rb522"]
+[ext_resource type="Texture2D" uid="uid://cxhqi1fjvwvwi" path="res://assets/sprites/college.png" id="1_vxg52"]
+[ext_resource type="FontFile" uid="uid://cryci81dcv17q" path="res://assets/fonts/Blue Winter.ttf" id="2_3a1r4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxg52"]
+size = Vector2(874, 458)
+
+[sub_resource type="Animation" id="Animation_rb522"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5ynys"]
+resource_name = "hide_label"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_cblcu"]
+resource_name = "show_label"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ynys"]
+_data = {
+&"RESET": SubResource("Animation_rb522"),
+&"hide_label": SubResource("Animation_5ynys"),
+&"show_label": SubResource("Animation_cblcu")
+}
+
+[node name="CollegeNotreDame" type="Area2D" unique_id=415919852]
+script = ExtResource("1_rb522")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=744381399]
+position = Vector2(9, 1)
+shape = SubResource("RectangleShape2D_vxg52")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1065243653]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_vxg52")
+
+[node name="Label" type="Label" parent="." unique_id=1384941013]
+offset_left = -421.0
+offset_top = -225.0
+offset_right = 438.0
+offset_bottom = -169.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_3a1r4")
+theme_override_font_sizes/font_size = 32
+text = "Collège Notre-Dame Bourbourg  |  2016 - 2020"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label" unique_id=833702831]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_5ynys")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

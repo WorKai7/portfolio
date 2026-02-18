@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://b7gyj3cpapijd"]
+
+[ext_resource type="Script" uid="uid://dmcneof00xrm0" path="res://scenes/ecole_college.gd" id="1_kr1no"]
+[ext_resource type="Texture2D" uid="uid://by0kyaedf5otv" path="res://assets/sprites/primaire.png" id="2_d0k38"]
+[ext_resource type="FontFile" uid="uid://cryci81dcv17q" path="res://assets/fonts/Blue Winter.ttf" id="3_dfclh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ieuq"]
+size = Vector2(34.43902, 22.341463)
+
+[sub_resource type="Animation" id="Animation_kr1no"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.16, 0.16), Vector2(0.2, 0.2)]
+}
+
+[sub_resource type="Animation" id="Animation_dfclh"]
+resource_name = "hide_label"
+length = 0.2
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.16, 0.16)]
+}
+
+[sub_resource type="Animation" id="Animation_d0k38"]
+resource_name = "show_label"
+length = 0.2
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.16, 0.16), Vector2(0.2, 0.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dfclh"]
+_data = {
+&"RESET": SubResource("Animation_kr1no"),
+&"hide_label": SubResource("Animation_dfclh"),
+&"show_label": SubResource("Animation_d0k38")
+}
+
+[node name="EcoleSainteGermaine" type="Area2D" unique_id=1203279956]
+scale = Vector2(2, 2)
+script = ExtResource("1_kr1no")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=436987115]
+position = Vector2(-4.4999933, -0.49999475)
+scale = Vector2(10.25, 10.25)
+shape = SubResource("RectangleShape2D_5ieuq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1307899770]
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("2_d0k38")
+
+[node name="Label" type="Label" parent="." unique_id=534747640]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -523.0
+offset_top = -269.0
+offset_right = 312.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.16, 0.16)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_dfclh")
+theme_override_font_sizes/font_size = 64
+text = "Ecole primaire
+Ecole Sainte-Germaine
+Looberghe
+2007 - 2016"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label" unique_id=2113103575]
+libraries/ = SubResource("AnimationLibrary_dfclh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
