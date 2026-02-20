@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b7gyj3cpapijd"]
 
-[ext_resource type="Script" uid="uid://dmcneof00xrm0" path="res://scenes/ecole_college.gd" id="1_kr1no"]
+[ext_resource type="Script" uid="uid://dmcneof00xrm0" path="res://scripts/ecole_college.gd" id="1_kr1no"]
 [ext_resource type="Texture2D" uid="uid://by0kyaedf5otv" path="res://assets/sprites/primaire.png" id="2_d0k38"]
 [ext_resource type="FontFile" uid="uid://cryci81dcv17q" path="res://assets/fonts/Blue Winter.ttf" id="3_dfclh"]
 

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dpymbxo1q0e7s"]
+
+[ext_resource type="Script" uid="uid://pn73cyumbyqv" path="res://scripts/epid.gd" id="1_suwd2"]
+[ext_resource type="Texture2D" uid="uid://ci7mgrxulf6at" path="res://assets/sprites/epid.png" id="1_t1u4d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1u4d"]
+size = Vector2(929, 417)
+
+[node name="EPID" type="Area2D" unique_id=622323567]
+script = ExtResource("1_suwd2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1870185829]
+position = Vector2(4.5, -23.5)
+shape = SubResource("RectangleShape2D_t1u4d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=623787737]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_t1u4d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

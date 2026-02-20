@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://c0kdwr80qo5ve" path="res://assets/sprites/player_anims/male_hero_template-run.png" id="5_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://bw7rgamjfcexn" path="res://assets/sprites/player_anims/male_hero_template-walk.png" id="6_y4r1p"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
-size = Vector2(20.666668, 32.666668)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tuyoq"]
+radius = 11.666667
+height = 34.000004
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("2_tuyoq")
@@ -322,13 +323,14 @@ animations = [{
 script = ExtResource("1_tuyoq")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1481230524]
+z_index = 10
 position = Vector2(-1.5, -0.50000095)
 scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_tuyoq")
+shape = SubResource("CapsuleShape2D_tuyoq")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2065994873]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_6e8lb")
-animation = &"fall"
+animation = &"idle"
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

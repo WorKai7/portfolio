@@ -13,6 +13,5 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	body.position = respawn_pos
-	print("ON ENTRE")
-	print(body)
+	if is_instance_of(body, CharacterBody2D):
+		body.position = respawn_pos

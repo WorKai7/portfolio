@@ -14,3 +14,5 @@ position = Vector2(-529, 566)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=701262007]
 position = Vector2(-528, 362)
+
+[connection signal="change_to_epid_scene" from="Map" to="." method="_on_map_change_to_epid_scene"]
