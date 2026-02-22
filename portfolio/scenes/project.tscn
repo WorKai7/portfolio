@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://ccf8ts0qn66dl"]
+
+[ext_resource type="Texture2D" uid="uid://1eqimn112hwf" path="res://assets/sprites/project_sign.PNG" id="1_nbemg"]
+[ext_resource type="FontFile" uid="uid://cryci81dcv17q" path="res://assets/fonts/Blue Winter.ttf" id="2_2hkg8"]
+[ext_resource type="Script" uid="uid://b4sbjo30ahcdo" path="res://scenes/project.gd" id="2_r1lkl"]
+[ext_resource type="Texture2D" uid="uid://xq83wt1518oa" path="res://assets/sprites/projects_sprites/shroomtd.png" id="3_r1lkl"]
+[ext_resource type="Texture2D" uid="uid://ds3q3lic6ikyq" path="res://assets/sprites/github-white-icon.png" id="5_r1lkl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hkg8"]
+size = Vector2(1005, 986)
+
+[sub_resource type="Animation" id="Animation_r1lkl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LinkIcon:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LinkIcon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ioxnp"]
+resource_name = "hide_icon"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LinkIcon:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LinkIcon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_uthkf"]
+resource_name = "show_icon"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LinkIcon:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LinkIcon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ioxnp"]
+_data = {
+&"RESET": SubResource("Animation_r1lkl"),
+&"hide_icon": SubResource("Animation_ioxnp"),
+&"show_icon": SubResource("Animation_uthkf")
+}
+
+[node name="ProjectSign" type="Area2D" unique_id=1905996470]
+script = ExtResource("2_r1lkl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1486524649]
+position = Vector2(-2.5, -12)
+shape = SubResource("RectangleShape2D_2hkg8")
+
+[node name="ProjectSign" type="Sprite2D" parent="." unique_id=1704521747]
+texture = ExtResource("1_nbemg")
+
+[node name="Titre" type="Label" parent="." unique_id=117143873]
+offset_left = -223.1062
+offset_top = -431.9107
+offset_right = 225.96631
+offset_bottom = -334.65924
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_2hkg8")
+theme_override_font_sizes/font_size = 64
+text = "ShroomTD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Image" type="TextureRect" parent="." unique_id=1489673758]
+offset_left = -317.00003
+offset_top = -258.0
+offset_right = 74.65747
+offset_bottom = 51.0
+rotation = -0.013758974
+texture = ExtResource("3_r1lkl")
+expand_mode = 1
+
+[node name="Description" type="Label" parent="." unique_id=2027687801]
+offset_left = 79.0
+offset_top = -278.00003
+offset_right = 345.3543
+offset_bottom = 68.99997
+rotation = -0.01126502
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_2hkg8")
+theme_override_font_sizes/font_size = 15
+text = "Projet ShroomTD
+
+Mars - Avril 2023
+
+Projet de fin d'année de Terminale
+
+
+Participation à la compétition \"Les Trophées NSI\"
+
+Résultat : Lauréat Régional (Hauts-De-France), catégorie \"Meilleur Projet Terminale\""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LinkIcon" type="TextureRect" parent="." unique_id=614364776]
+offset_left = -48.0
+offset_top = 143.0
+offset_right = 49.249992
+offset_bottom = 240.25
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_r1lkl")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1092342674]
+libraries/ = SubResource("AnimationLibrary_ioxnp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

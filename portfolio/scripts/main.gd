@@ -29,11 +29,11 @@ func _on_map_change_to_epid_scene() -> void:
 	
 	current_map = epid_map
 	
-	epid_map.back_to_map.connect(_on_epid_back_to_map)
+	epid_map.back_to_map.connect(_back_to_main_map)
 	
 	$Player.position = Vector2(0, 550)
 
-func _on_epid_back_to_map():
+func _back_to_main_map():
 	var main_map = main_map_scene.instantiate()
 	
 	var parent = current_map.get_parent()
@@ -49,3 +49,8 @@ func _on_epid_back_to_map():
 	main_map.change_to_epid_scene.connect(_on_map_change_to_epid_scene)
 	
 	$Player.position = Vector2(8800, 400)
+
+
+func _on_control_teleport(pos: Vector2) -> void:
+	_back_to_main_map()
+	$Player.position = pos
