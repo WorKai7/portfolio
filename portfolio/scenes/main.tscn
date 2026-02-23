@@ -19,4 +19,5 @@ position = Vector2(-528, 362)
 [node name="Control" parent="." unique_id=281385642 instance=ExtResource("4_jyhfs")]
 
 [connection signal="change_to_epid_scene" from="Map" to="." method="_on_map_change_to_epid_scene"]
+[connection signal="change_to_iut_scene" from="Map" to="." method="_on_map_change_to_iut_scene"]
 [connection signal="teleport" from="Control" to="." method="_on_control_teleport"]
