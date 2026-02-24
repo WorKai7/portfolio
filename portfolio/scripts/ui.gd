@@ -7,12 +7,13 @@ var teleport_map: Dictionary = {
 	2: Vector2(3000, 500),
 	3: Vector2(5500, 500),
 	4: Vector2(8000, 400),
-	5: Vector2(11500, 400)
+	5: Vector2(11500, 400),
+	6: Vector2(14700, 400)
 }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	$OptionButton.focus_mode = Control.FOCUS_NONE
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

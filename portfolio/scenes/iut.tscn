@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bg24ywgef10bd"]
 
 [ext_resource type="Texture2D" uid="uid://dsc0j5nwacqtv" path="res://assets/sprites/ulco.png" id="1_uglmk"]
-[ext_resource type="Script" uid="uid://pn73cyumbyqv" path="res://scripts/epid_iut.gd" id="1_vfmsw"]
+[ext_resource type="Script" uid="uid://pn73cyumbyqv" path="res://scripts/enterable_building.gd" id="1_vfmsw"]
 [ext_resource type="FontFile" uid="uid://cryci81dcv17q" path="res://assets/fonts/Blue Winter.ttf" id="2_voh6d"]
 [ext_resource type="Texture2D" uid="uid://dp3rx8q5r1k73" path="res://assets/sprites/door.png" id="3_vfmsw"]
 

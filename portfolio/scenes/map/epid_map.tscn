@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://da1b3uy0d0qly"]
 
-[ext_resource type="Script" uid="uid://dfjxqypk8qq1" path="res://scripts/school_map.gd" id="1_5358y"]
+[ext_resource type="Script" uid="uid://dfjxqypk8qq1" path="res://scripts/secondary_maps.gd" id="1_5358y"]
 [ext_resource type="Texture2D" uid="uid://cmu56lu0hmwug" path="res://assets/sprites/epid_background.png" id="2_iqxyh"]
 [ext_resource type="Texture2D" uid="uid://dkqq3w0kfkack" path="res://assets/sprites/tiles_spritesheet.png" id="2_updfe"]
 [ext_resource type="Texture2D" uid="uid://c6cwq4cwfeoxh" path="res://assets/sprites/big_sign.png" id="3_7r4lh"]
