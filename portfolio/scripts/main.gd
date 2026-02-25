@@ -10,8 +10,8 @@ var current_map: Node2D
 func _ready() -> void:
 	main_map_scene = preload("res://scenes/map/map.tscn")
 	epid_map_scene = preload("res://scenes/map/epid_map.tscn")
-	iut_map_scene = preload("res://scenes/iut_map.tscn")
-	skills_map_scene = preload("res://scenes/skills_map.tscn")
+	iut_map_scene = preload("res://scenes/map/iut_map.tscn")
+	skills_map_scene = preload("res://scenes/map/skills_map.tscn")
 	current_map = $Map
 
 

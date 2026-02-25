@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
-var has_jumped = false
-var speed = 300.0
-const JUMP_VELOCITY = -400.0
-var direction
+var has_jumped: bool = false
+var speed: float = 300.0
+const JUMP_VELOCITY: float = -400.0
+var direction: int
+var can_climb: bool = false
+var climb_speed: float = -5
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 
@@ -11,13 +13,28 @@ func _physics_process(delta: float) -> void:
 	sprite.play()
 	
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and not can_climb:
 		velocity += get_gravity() * delta
 	else:
 		has_jumped = false
-
+	
+	# Handle ladder.
+	if can_climb:
+		if not is_on_floor():
+			if Input.is_action_pressed("climb") or Input.is_action_pressed("unclimb"):
+				sprite.animation = "climb"
+			else:
+				sprite.animation = "climb_idle"
+			
+		velocity.y = 0 
+		
+		if Input.is_action_pressed("climb"):
+			position.y += climb_speed
+		if Input.is_action_pressed("unclimb"):
+			position.y -= climb_speed
+	
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and not can_climb:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -56,7 +73,8 @@ func _physics_process(delta: float) -> void:
 		
 	if not is_on_floor():
 		if not has_jumped:
-			sprite.animation = "jump"
+			if not can_climb:
+				sprite.animation = "jump"
 
 	move_and_slide()
 
