@@ -36,7 +36,10 @@ func _on_map_change_to_epid_scene() -> void:
 	
 	current_map = epid_map
 	
-	epid_map.back_to_map.connect(_back_to_main_map)
+	for door in epid_map.get_tree().get_nodes_in_group("doors"):
+		if door.is_inside_tree() and door.get_parent():
+			if epid_map.is_ancestor_of(door):
+				door.back_to_map.connect(_back_to_main_map)
 	
 	$Player.position = Vector2(0, 550)
 
@@ -89,7 +92,10 @@ func _on_map_change_to_iut_scene() -> void:
 	
 	current_map = iut_map
 	
-	iut_map.back_to_map.connect(_back_to_main_map)
+	for door in iut_map.get_tree().get_nodes_in_group("doors"):
+		if door.is_inside_tree() and door.get_parent():
+			if iut_map.is_ancestor_of(door):
+				door.back_to_map.connect(_back_to_main_map)
 	
 	$Player.position = Vector2(0, 550)
 
@@ -107,7 +113,10 @@ func _on_map_change_to_skills_scene() -> void:
 	
 	current_map = skills_map
 	
-	skills_map.back_to_map.connect(_back_to_main_map)
+	for door in skills_map.get_tree().get_nodes_in_group("doors"):
+		if door.is_inside_tree() and door.get_parent():
+			if skills_map.is_ancestor_of(door):
+				door.back_to_map.connect(_back_to_main_map)
 	
 	$Player.position = Vector2(150, 550)
 	$Camera2D.position.x = 540

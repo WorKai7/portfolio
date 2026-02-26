@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://da1b3uy0d0qly"]
 
-[ext_resource type="Script" uid="uid://dfjxqypk8qq1" path="res://scripts/secondary_maps.gd" id="1_5358y"]
 [ext_resource type="Texture2D" uid="uid://cmu56lu0hmwug" path="res://assets/sprites/epid_background.png" id="2_iqxyh"]
 [ext_resource type="Texture2D" uid="uid://dkqq3w0kfkack" path="res://assets/sprites/tiles_spritesheet.png" id="2_updfe"]
 [ext_resource type="Texture2D" uid="uid://c6cwq4cwfeoxh" path="res://assets/sprites/big_sign.png" id="3_7r4lh"]
@@ -8,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c5ajr8vs0nvji" path="res://assets/sprites/sign.png" id="5_7r4lh"]
 [ext_resource type="Texture2D" uid="uid://xq83wt1518oa" path="res://assets/sprites/projects_sprites/shroomtd.png" id="7_aoi11"]
 [ext_resource type="PackedScene" uid="uid://ccf8ts0qn66dl" path="res://scenes/project.tscn" id="7_f0gyq"]
+[ext_resource type="PackedScene" uid="uid://bcyeclnvs4jmp" path="res://scenes/backdoor.tscn" id="9_aoi11"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5358y"]
 texture = ExtResource("2_updfe")
@@ -183,11 +183,7 @@ sources/0 = SubResource("TileSetAtlasSource_5358y")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_updfe"]
 size = Vector2(13, 731)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5358y"]
-size = Vector2(81, 122)
-
 [node name="EPIDMap" type="Node2D" unique_id=1411094583]
-script = ExtResource("1_5358y")
 
 [node name="Background" type="Parallax2D" parent="." unique_id=1639844356]
 texture_filter = 1
@@ -334,22 +330,15 @@ shape = SubResource("RectangleShape2D_updfe")
 
 [node name="Doors" type="Node2D" parent="." unique_id=997138621]
 
-[node name="BackDoor" type="Area2D" parent="Doors" unique_id=1458423158]
-position = Vector2(37, 579)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/BackDoor" unique_id=1081200167]
-position = Vector2(-2.5, -5)
-shape = SubResource("RectangleShape2D_5358y")
-
-[node name="BackDoor2" type="Area2D" parent="Doors" unique_id=1856253821]
-position = Vector2(3288, 579)
+[node name="Backdoor2" parent="Doors" unique_id=993180985 instance=ExtResource("9_aoi11")]
+position = Vector2(3395, 575)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/BackDoor2" unique_id=598356534]
-position = Vector2(106, -5)
-shape = SubResource("RectangleShape2D_5358y")
+[node name="Button" parent="Doors/Backdoor2" index="1" unique_id=1927458849]
+offset_top = -1082.0001
+offset_bottom = 925.9999
 
-[connection signal="body_entered" from="Doors/BackDoor" to="." method="_on_back_door_body_entered"]
-[connection signal="body_exited" from="Doors/BackDoor" to="." method="_on_back_door_body_exited"]
-[connection signal="body_entered" from="Doors/BackDoor2" to="." method="_on_back_door_body_entered"]
-[connection signal="body_exited" from="Doors/BackDoor2" to="." method="_on_back_door_body_exited"]
+[node name="Backdoor" parent="Doors" unique_id=471307242 instance=ExtResource("9_aoi11")]
+position = Vector2(35, 574)
+
+[editable path="Doors/Backdoor2"]

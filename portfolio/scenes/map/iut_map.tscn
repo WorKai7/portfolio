@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://ddrh66ta8gwp3" path="res://assets/sprites/iut.png" id="1_1twf1"]
 [ext_resource type="Texture2D" uid="uid://dkqq3w0kfkack" path="res://assets/sprites/tiles_spritesheet.png" id="1_5nl7a"]
-[ext_resource type="Script" uid="uid://dfjxqypk8qq1" path="res://scripts/secondary_maps.gd" id="1_shcrn"]
 [ext_resource type="Texture2D" uid="uid://c5ajr8vs0nvji" path="res://assets/sprites/sign.png" id="3_1nm1h"]
 [ext_resource type="FontFile" uid="uid://cryci81dcv17q" path="res://assets/fonts/Blue Winter.ttf" id="4_lx4b7"]
 [ext_resource type="PackedScene" uid="uid://ccf8ts0qn66dl" path="res://scenes/project.tscn" id="5_lx4b7"]
 [ext_resource type="Texture2D" uid="uid://dt823p3r4ihih" path="res://assets/sprites/projects_sprites/pokemons.webp" id="6_sac0u"]
 [ext_resource type="Texture2D" uid="uid://durgg0x2bx8qi" path="res://assets/sprites/projects_sprites/2v2.webp" id="7_d7mky"]
+[ext_resource type="PackedScene" uid="uid://bcyeclnvs4jmp" path="res://scenes/backdoor.tscn" id="9_wgb52"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1twf1"]
 texture = ExtResource("1_5nl7a")
@@ -2904,11 +2904,7 @@ sources/0 = SubResource("TileSetAtlasSource_1twf1")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nl7a"]
 size = Vector2(18, 824)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_shcrn"]
-size = Vector2(81, 122)
-
 [node name="IUTMap" type="Node2D" unique_id=1513253027]
-script = ExtResource("1_shcrn")
 
 [node name="Background" type="Parallax2D" parent="." unique_id=722533374]
 scroll_scale = Vector2(0.05, 0.05)
@@ -3038,22 +3034,8 @@ shape = SubResource("RectangleShape2D_5nl7a")
 
 [node name="Doors" type="Node2D" parent="." unique_id=546320304]
 
-[node name="BackDoor" type="Area2D" parent="Doors" unique_id=283210871]
-position = Vector2(37, 579)
+[node name="Backdoor" parent="Doors" unique_id=471307242 instance=ExtResource("9_wgb52")]
+position = Vector2(37, 575)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/BackDoor" unique_id=1288969211]
-position = Vector2(-2.5, -5)
-shape = SubResource("RectangleShape2D_shcrn")
-
-[node name="BackDoor2" type="Area2D" parent="Doors" unique_id=791367463]
-position = Vector2(4796, 577)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/BackDoor2" unique_id=1237715132]
-position = Vector2(-2.5, -5)
-shape = SubResource("RectangleShape2D_shcrn")
-
-[connection signal="body_entered" from="Doors/BackDoor" to="." method="_on_back_door_body_entered"]
-[connection signal="body_exited" from="Doors/BackDoor" to="." method="_on_back_door_body_exited"]
-[connection signal="body_entered" from="Doors/BackDoor2" to="." method="_on_back_door_body_entered"]
-[connection signal="body_exited" from="Doors/BackDoor2" to="." method="_on_back_door_body_exited"]
+[node name="Backdoor2" parent="Doors" unique_id=586509371 instance=ExtResource("9_wgb52")]
+position = Vector2(4795, 575)

@@ -7,7 +7,7 @@ var is_inside: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Label.hide()
-	$TextureRect.hide()
+	$Bouton.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,7 +22,7 @@ func _on_body_entered(body: Node2D) -> void:
 		is_inside = true
 		$AnimationPlayer.play("show")
 		$Label.show()
-		$TextureRect.show()
+		$Bouton.show()
 
 
 func _on_body_exited(body: Node2D) -> void:
@@ -31,4 +31,8 @@ func _on_body_exited(body: Node2D) -> void:
 		$AnimationPlayer.play("hide")
 		await $AnimationPlayer.animation_finished
 		$Label.hide()
-		$TextureRect.hide()
+		$Bouton.hide()
+
+
+func _on_bouton_pressed() -> void:
+	building_entered.emit()

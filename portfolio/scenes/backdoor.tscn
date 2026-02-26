@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bcyeclnvs4jmp"]
+
+[ext_resource type="Script" uid="uid://djbcm2n0l8oxn" path="res://scripts/backdoor.gd" id="1_0vyny"]
+[ext_resource type="Texture2D" uid="uid://dp3rx8q5r1k73" path="res://assets/sprites/door.png" id="2_sum7p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aanog"]
+size = Vector2(74, 114)
+
+[sub_resource type="Animation" id="Animation_tgep7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.015, 0.015)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_0vyny"]
+resource_name = "hide"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.03, 0.03), Vector2(0.02, 0.02)]
+}
+
+[sub_resource type="Animation" id="Animation_fwdwy"]
+resource_name = "show"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.02, 0.02), Vector2(0.03, 0.03)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ttffv"]
+_data = {
+&"RESET": SubResource("Animation_tgep7"),
+&"hide": SubResource("Animation_0vyny"),
+&"show": SubResource("Animation_fwdwy")
+}
+
+[node name="Backdoor" type="Area2D" unique_id=471307242 groups=["doors"]]
+script = ExtResource("1_0vyny")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1407678175]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_aanog")
+
+[node name="Button" type="Button" parent="." unique_id=1927458849]
+offset_left = -1004.00006
+offset_top = -1093.0001
+offset_right = 1003.99994
+offset_bottom = 914.9999
+scale = Vector2(0.015, 0.015)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+icon = ExtResource("2_sum7p")
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Button" unique_id=183774404]
+libraries/ = SubResource("AnimationLibrary_ttffv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
