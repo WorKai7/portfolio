@@ -4,6 +4,8 @@ var main_map_scene: PackedScene
 var epid_map_scene: PackedScene
 var iut_map_scene: PackedScene
 var skills_map_scene: PackedScene
+var projects_map_scene: PackedScene
+var versalis_map_scene: PackedScene
 var current_map: Node2D
 
 # Called when the node enters the scene tree for the first time.
@@ -12,6 +14,8 @@ func _ready() -> void:
 	epid_map_scene = preload("res://scenes/map/epid_map.tscn")
 	iut_map_scene = preload("res://scenes/map/iut_map.tscn")
 	skills_map_scene = preload("res://scenes/map/skills_map.tscn")
+	projects_map_scene = preload("res://scenes/map/project_map.tscn")
+	versalis_map_scene = preload("res://scenes/map/versalis_map.tscn")
 	current_map = $Map
 
 
@@ -60,6 +64,8 @@ func _back_to_main_map():
 	main_map.change_to_epid_scene.connect(_on_map_change_to_epid_scene)
 	main_map.change_to_iut_scene.connect(_on_map_change_to_iut_scene)
 	main_map.change_to_skills_scene.connect(_on_map_change_to_skills_scene)
+	main_map.change_to_projects_scene.connect(_on_map_change_to_projects_scene)
+	main_map.change_to_versalis_scene.connect(_on_map_change_to_versalis_scene)
 	
 	match old_map_name:
 		"EPIDMap":
@@ -68,6 +74,10 @@ func _back_to_main_map():
 			$Player.position = Vector2(12500, 400)
 		"SkillsMap":
 			$Player.position = Vector2(15300, 400)
+		"ProjectMap":
+			$Player.position = Vector2(17350, 600)
+		"VersalisMap":
+			$Player.position = Vector2(20500, 400)
 	
 	$Camera2D.position.y = 362
 
@@ -116,6 +126,50 @@ func _on_map_change_to_skills_scene() -> void:
 	for door in skills_map.get_tree().get_nodes_in_group("doors"):
 		if door.is_inside_tree() and door.get_parent():
 			if skills_map.is_ancestor_of(door):
+				door.back_to_map.connect(_back_to_main_map)
+	
+	$Player.position = Vector2(150, 550)
+	$Camera2D.position.x = 540
+
+
+func _on_map_change_to_projects_scene() -> void:
+	var projects_map = self.projects_map_scene.instantiate()
+	
+	var parent = current_map.get_parent()
+	var index = current_map.get_index()
+	
+	current_map.queue_free()
+	
+	parent.add_child(projects_map)
+	parent.move_child(projects_map, index)
+	
+	current_map = projects_map
+	
+	for door in projects_map.get_tree().get_nodes_in_group("doors"):
+		if door.is_inside_tree() and door.get_parent():
+			if projects_map.is_ancestor_of(door):
+				door.back_to_map.connect(_back_to_main_map)
+	
+	$Player.position = Vector2(150, 550)
+	$Camera2D.position.x = 540
+
+
+func _on_map_change_to_versalis_scene() -> void:
+	var versalis_map = self.versalis_map_scene.instantiate()
+	
+	var parent = current_map.get_parent()
+	var index = current_map.get_index()
+	
+	current_map.queue_free()
+	
+	parent.add_child(versalis_map)
+	parent.move_child(versalis_map, index)
+	
+	current_map = versalis_map
+	
+	for door in versalis_map.get_tree().get_nodes_in_group("doors"):
+		if door.is_inside_tree() and door.get_parent():
+			if versalis_map.is_ancestor_of(door):
 				door.back_to_map.connect(_back_to_main_map)
 	
 	$Player.position = Vector2(150, 550)

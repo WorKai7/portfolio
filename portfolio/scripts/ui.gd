@@ -8,7 +8,9 @@ var teleport_map: Dictionary = {
 	3: Vector2(5500, 500),
 	4: Vector2(8000, 400),
 	5: Vector2(11500, 400),
-	6: Vector2(14700, 400)
+	6: Vector2(14700, 400),
+	7: Vector2(16800, 600),
+	9: Vector2(20000, 300)
 }
 
 # Called when the node enters the scene tree for the first time.

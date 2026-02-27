@@ -20,5 +20,7 @@ position = Vector2(-528, 362)
 
 [connection signal="change_to_epid_scene" from="Map" to="." method="_on_map_change_to_epid_scene"]
 [connection signal="change_to_iut_scene" from="Map" to="." method="_on_map_change_to_iut_scene"]
+[connection signal="change_to_projects_scene" from="Map" to="." method="_on_map_change_to_projects_scene"]
 [connection signal="change_to_skills_scene" from="Map" to="." method="_on_map_change_to_skills_scene"]
+[connection signal="change_to_versalis_scene" from="Map" to="." method="_on_map_change_to_versalis_scene"]
 [connection signal="teleport" from="Control" to="." method="_on_control_teleport"]

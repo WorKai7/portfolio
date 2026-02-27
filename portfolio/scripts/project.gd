@@ -35,3 +35,7 @@ func _on_body_exited(body: Node2D) -> void:
 		await $AnimationPlayer.animation_finished
 		$LinkIcon.hide()
 		is_inside = false
+
+
+func _on_link_icon_pressed() -> void:
+	OS.shell_open(link)

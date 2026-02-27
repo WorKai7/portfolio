@@ -292,7 +292,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="ProjectSign" parent="Signs" unique_id=1598351948 instance=ExtResource("7_f0gyq")]
-position = Vector2(2613, 385)
+position = Vector2(2617, 351)
 scale = Vector2(0.9726562, 0.9726563)
 project_texture = ExtResource("7_aoi11")
 project_title = "ShroomTD"

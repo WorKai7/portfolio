@@ -2980,7 +2980,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="PokemonSign" parent="Signs" unique_id=1905996470 instance=ExtResource("5_lx4b7")]
-position = Vector2(2254, -117.27)
+position = Vector2(2252, -150)
 scale = Vector2(0.973, 0.973)
 project_texture = ExtResource("6_sac0u")
 project_title = "Pokémons"
@@ -2995,7 +2995,7 @@ Mise en place d'une CI/CD, tests unitaires, coverage 100%...."
 link = "https://github.com/WorKai7/Application-gestion-cartes-pokemons"
 
 [node name="EchekemonSign" parent="Signs" unique_id=725890317 instance=ExtResource("5_lx4b7")]
-position = Vector2(3533, -117.27)
+position = Vector2(3531, -150)
 scale = Vector2(0.973, 0.973)
 project_texture = ExtResource("7_d7mky")
 project_title = "Echekémons"
