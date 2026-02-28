@@ -24,14 +24,14 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if is_instance_of(body, CharacterBody2D):
-		$AnimationPlayer.play("show_icon")
+		$AnimationPlayer.play("show")
 		$LinkIcon.show()
 		is_inside = true
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if is_instance_of(body, CharacterBody2D):
-		$AnimationPlayer.play("hide_icon")
+		$AnimationPlayer.play("hide")
 		await $AnimationPlayer.animation_finished
 		$LinkIcon.hide()
 		is_inside = false
