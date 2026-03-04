@@ -26,3 +26,15 @@ func _on_option_button_item_selected(index: int) -> void:
 	if index != 0:
 		teleport.emit(teleport_map[index])
 		$OptionButton.select(0)
+
+
+func _on_github_pressed() -> void:
+	OS.shell_open("https://github.com/WorKai7")
+
+
+func _on_linkedin_pressed() -> void:
+	OS.shell_open("https://www.linkedin.com/in/j%C3%A9r%C3%B4me-vandewalle-391b37348/")
+
+
+func _on_wordpress_pressed() -> void:
+	OS.shell_open("https://jeromevandewalle.wordpress.com/")

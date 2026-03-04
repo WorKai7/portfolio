@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://blkrnj3vuu3hj"]
 
 [ext_resource type="Script" uid="uid://mmfu5q0ib8yy" path="res://scripts/ui.gd" id="1_nt7q6"]
+[ext_resource type="Texture2D" uid="uid://ds3q3lic6ikyq" path="res://assets/sprites/github-white-icon.png" id="2_yev5y"]
+[ext_resource type="Texture2D" uid="uid://dcmn5xgn8xa2h" path="res://assets/sprites/logo-linkedin (1).webp" id="3_gdt2y"]
+[ext_resource type="Texture2D" uid="uid://8bx5r1yhibwt" path="res://assets/sprites/website.webp" id="4_gdt2y"]
 
 [node name="Control" type="CanvasLayer" unique_id=710846821]
 script = ExtResource("1_nt7q6")
@@ -35,4 +38,42 @@ popup/item_8/separator = true
 popup/item_9/text = "Versalis"
 popup/item_9/id = 9
 
+[node name="Github" type="TextureButton" parent="." unique_id=892229484]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 48.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_yev5y")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Linkedin" type="TextureButton" parent="." unique_id=322873229]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -107.935
+offset_right = -59.934814
+offset_bottom = 48.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_gdt2y")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Wordpress" type="TextureButton" parent="." unique_id=1174914531]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.84003
+offset_right = -120.83984
+offset_bottom = 48.0
+grow_horizontal = 0
+texture_normal = ExtResource("4_gdt2y")
+ignore_texture_size = true
+stretch_mode = 0
+
 [connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="Github" to="." method="_on_github_pressed"]
+[connection signal="pressed" from="Linkedin" to="." method="_on_linkedin_pressed"]
+[connection signal="pressed" from="Wordpress" to="." method="_on_wordpress_pressed"]
